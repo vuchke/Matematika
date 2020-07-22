@@ -690,6 +690,9 @@ footer .container {
   .heroContent p {
     line-height: 2em;
   }
+  .priceContent p:first-child{
+    font-size: 2rem;
+  }
 }
 
 @media screen and (max-width: 768px) {
