@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css"
+      integrity="sha512-f0tzWhCwVFS3WeYaofoLWkTP62ObhewQ1EZn65oSYDZUg1+CyywGKkWzm8BxaJj5HGKI72PnMH9jYyIFz+GH7g=="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <header>
+      <nav>
+        <div class="logo">
+          <img src="./img/logo.png" alt="" />
+          <div class="logoText">
+            <p>Privatni Časovi</p>
+
+            <p>Matematike</p>
+          </div>
+        </div>
+
+        <ul class="nav-links">
+          <li><a class="nav-link" href="#pocetna">Početna</a></li>
+          <li><a class="nav-link" href="#teme">Nastavne Teme</a></li>
+          <li><a class="nav-link" href="#category">Cenovnik</a></li>
+          <li><a class="nav-link" href="#contact">Kontakt</a></li>
+        </ul>
+        <div class="burger">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section id="pocetna">
+        <div class="heroContainer">
+          <video autoplay muted loop id="myVideo">
+            <source src="./video/heroBackground.mp4" type="video/mp4" />
+          </video>
+          <div class="heroContent">
+            <div class="contentContainer">
+              <h1>Da li želite da naučite Matematiku?</h1>
+              <p>
+                Privatni časovi matematike za <b style="color: #36215c; ; "> osnovce, srednjoškolce i studente </b>kod profesorice matematike sa zavrsenim master <br> studijama i visegodisnim iskustvom! <br>
+                Pošaljite zahtev i zakazite na vreme!
+              </p>
+              <a href="#contact" class="btn">Zakaži</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="teme">
+        <h1>Nastavne Teme</h1>
+        <div class="temeContainer">
+
+          <div class="OSContainer">
+            <h2>Osnovna Škola</h2>
+            <div class="accordion" id="nastavnoGradivoOS">
+              <div class="accordion-item" v-for='(razred,index) in razredi' :key='index'>
+                <div class="accordion-item-header" @click='toggleActive'><h4> {{ razred.razred }} </h4></div>
+                <div class="accordion-item-body">
+                  <div class="accordion-item-body-content">
+                    <ol>
+                      <li v-for='(lekcija,index) in razred.lekcije' :key='index'>
+                       <b> {{ lekcija.naslov }} </b>
+                       <p v-for='(gradivo, index) in lekcija.gradiva' :key='index'>-{{ gradivo }} </p>
+                      </li>
+                    </ol>
+                  </div>
+                </div>
+              </div>             
+            </div>
+          </div>
+
+          <div class="SSContainer">
+            <h2>Srednja Škola</h2>
+            <div class="accordion" id="nastavnoGradivoSS">
+              <div class="accordion-item" v-for='(razred,index) in razredi' :key='index'>
+                <div class="accordion-item-header" @click='toggleActive'>{{ razred.razred }}</div>
+                <div class="accordion-item-body">
+                  <div class="accordion-item-body-content">
+                    <ol>
+                      <li v-for='(lekcija,index) in razred.lekcije' :key='index'>
+                        <b> {{ lekcija.naslov }} </b>
+                        <p v-for='(gradivo, index) in lekcija.gradiva' :key='index'>&nbsp;- {{ gradivo }}</p>
+                       </li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="category">
+        <h1 class="leadHeadline">Cenovnik</h1>
+        <div class="category">
+          <div class="categoryContainer">
+            <div class="card">
+              <div class="face face1">
+                <div class="content">
+                  <img src="./img/osnovna.png" alt="Osnovna" />
+                  <h3>Osnovna škola</h3>
+                </div>
+              </div>
+
+              <div class="face face2">
+                <div class="content">
+                  <div class="priceHeading">
+                    <h2>Osnovna škola</h2>
+                  </div>
+                  <div class="priceContent">
+                    <p> 500,00 RSD </p>
+                    <p> PO CASU</p>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="face face1">
+                <div class="content">
+                  <img src="./img/srednja.png" alt="srednja.png" />
+                  <h3>Srednja škola</h3>
+                </div>
+              </div>
+
+              <div class="face face2">
+                <div class="content">
+                  <div class="priceHeading">
+                    <h2>Srednja škola</h2>
+                  </div>
+                  <div class="priceContent">
+                    <p> 600,00 RSD </p>
+                    <p> PO CASU</p>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="face face1">
+                <div class="content">
+                  <img src="./img/zavrsni.png" alt="zavrsni" />
+                  <h3>Završni ispit</h3>
+                </div>
+              </div>
+
+              <div class="face face2">
+                <div class="content">
+                  <div class="priceHeading">
+                    <h2>Završni ispit</h2>
+                  </div>
+                  <div class="priceContent">
+                    <p> Po Dogovoru </p>
+                    
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="face face1">
+                <div class="content">
+                  <img src="./img/faks.png" alt="Fakultet" />
+                  <h3>Fakultet</h3>
+                </div>
+              </div>
+
+              <div class="face face2">
+                <div class="content">
+                  <div class="priceHeading">
+                    <h2>Fakultet</h2>
+                  </div>
+                  <div class="priceContent">
+                    <p> 1000,00 RSD </p>
+                    <p> PO CASU</p>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="contactForm">
+          <div class="shade">
+            <div class="blackboard">
+              <div class="form" id="form">
+                <p>
+                  <label>Ime i Prezime: </label>
+                  <input type="text" placeholder="Unesite Ime" name="ime" class="fullWidth" />
+                </p>
+
+                <p>
+                  <label>Broj Telefona: </label>
+                  <input type="tel" placeholder="Unesite Broj" name="broj" class="fullWidth" />
+                </p>
+
+                <p>
+                  <label>*Email: </label>
+                  <input type="text" placeholder="Unesite Email" name="email" class="fullWidth" /> <br />
+                  
+                </p>
+
+                <p>
+                  <label>Izaberite skolu:</label> <br />
+
+                  <input type="radio" id="osnovna" name="skola" value="Osnovna Skola" v-model='skola' />
+                  <label for="osnovna" class="small">Osnovna Skola</label> <br>
+                  <input type="radio" id="srednja" name="skola" value="Srednja Skola" v-model='skola' />
+                  <label for="srednja" class="small">Srednja Skola</label> <br>
+                  <input type="radio" id="zavrsni" name="skola" value="Mala Matura" v-model='skola' /> 
+                  <label for="zavrsni" class="small">Zavrsni Ispiti (Mala Matura)</label><br>
+                  <input type="radio" id="fakultet" name="skola" value="Fakultet" v-model='skola' />
+                  <label for="fakultet" class="small">Fakultet</label>
+                </p>
+                <p>
+                       
+                 
+                   
+
+                    <p v-if='skola == "Osnovna Skola"'>
+                      <label>Izaberite razred:</label> <br />
+
+                    <input type="radio" id="V" name="razred" value="V" />
+                    <label for="V" class="small">V razred</label> <br>
+                    <input type="radio" id="VI" name="razred" value="VI" />
+                    <label for="VI" class="small">VI razred</label> <br>
+                    <input type="radio" id="VII" name="razred" value="VII" /> 
+                    <label for="VII" class="small">VII razred</label><br>
+                    <input type="radio" id="VIII" name="razred" value="VIII" />
+                    <label for="VIII" class="small" >VIII razred</label>
+                    </p> 
+
+                    <p v-if='skola == "Srednja Skola"'>
+                      <label>Izaberite razred:</label> <br />
+                    <input type="radio" id="I" name="razred" value="I" />
+                    <label for="I" class="small">I razred</label> <br>
+                    <input type="radio" id="II" name="razred" value="II" />
+                    <label for="II" class="small">II razred</label> <br>
+                    <input type="radio" id="III" name="razred" value="III" /> 
+                    <label for="III" class="small">III razred</label><br>
+                    <input type="radio" id="IV" name="razred" value="IV" />
+                    <label for="IV" class="small" >IV razred</label>
+                    </p> 
+
+                    <p v-if='skola == "Fakultet"'>
+                      <label>Izaberite Godinu:</label> <br />
+                    <input type="radio" id="I" name="razred" value="I" />
+                    <label for="I" class="small">I Godina</label> <br>
+                    <input type="radio" id="II" name="razred" value="II" />
+                    <label for="II" class="small">II Godina</label> <br>
+                    <input type="radio" id="III" name="razred" value="III" /> 
+                    <label for="III" class="small">III Godina</label><br>
+                    <input type="radio" id="IV" name="razred" value="IV" />
+                    <label for="IV" class="small" >IV Godina</label>
+                    </p>
+                </p>
+
+                <p>
+                  <label for="date">Zakazite Termin:</label> <br>
+                  <input                    
+                      id="datetimepicker"                      
+                      type="text"
+                      name="date"                     
+                      placeholder="Pocetak casa"                    
+                    />
+                </p>
+
+                <p>
+                  <label>Nastavna Tema: </label> <br>
+                  <textarea placeholder="Gradivo koje ucimo" name="gradivo" class="fullWidth"></textarea>
+                </p>
+                <p class="wipeout">
+                  <!-- <input type="submit" value="Send" /> -->
+                  <button class="sendBtn">Posalji</button>
+                  
+                </p>
+                <span style="font-size: 8px; color: white;"
+                    >* Na email dobijate rezultate domacih zadataka</span
+                  >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>      
+    </main>
+    <footer>
+      <div class="footer">
+        <div class="container">
+          <!-- <div class="first">
+            <img src='http://unsplash.it/100/100?random&gravity=center' alt=''/>
+          </div> -->
+          
+          <div class="contact">
+            <h3 style="margin-bottom: 20px;">Kontakt informacije</h3>
+            <p><b> Email:</b> Casovimatematike@jakodugacko.com</p>
+            <p><b> Telefon: </b>064/5555-333</p>
+          </div>
+          <div class="social">
+            <ul>
+              <li>
+                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i> </a>
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+              </li>
+            </ul>
+          </div>
+          
+          <p style="text-align: center; width: 100%; background-color: rgb(255, 255, 255); color: #333;">
+            <span>&#169;</span> Copyright 2020 <br>
+            All rights reserved. Powered by 
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js"
+      integrity="sha512-QJsj3afWlCpnQ60XzzYE8Jb3IgHIK1BcGZox9rUSmRRq3Ocz9vQ1yR80eX2/b9jfx/UuT5zYWNdrM8Te/eCMhQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="app.js"></script>
+    <script>
+
+      let nastavnoGradivoOS = new Vue ({
+        el: '#nastavnoGradivoOS',
+        data() {
+          return {
+            razredi: [
+              {
+                razred: 'V Razred',
+                lekcije: [
+                  {
+                    naslov: 'SKUPOVI',
+                    gradiva: ['Skupovi', 'Skupovne operacije', 'Primena skupovnih operacija', 'Skup prirodnih brojeva', 'Skupovi tačaka', 'Uzajamni položaj dva kruga']
+                  },
+                  {
+                    naslov: 'UGAO',
+                    gradiva: ['Ugao, pojam, elementi i obeležavanje'
+                            , 'Vrste uglova, upoređivanje uglova', 'Transverzalni uglovi', 'Uglovi sa paralelnim kracima', 'Uglovi sa normalnim kracima']
+                  },
+                  {
+                    naslov: 'DELJIVOST',
+                    gradiva: ['Deljivost u N0','Kriterijumi deljivosti', 'Prosti i složeni brojevi', 'Zajednički delioci', 'Zajednički sadržaoci', 'Primena NZS i NZD na problemske zadatke', 'Osnovni elementi računa ostataka', 'Eratostenovo sito', 'Račun ostataka']
+                  },
+                  {
+                    naslov: 'DIRIHLEOV PRINCIP',
+                    gradiva: ['Teorema o zečevima i kavezima, primena', 'Primena Dirihleovog principa na probleme teorije brojeva', 'Primena Dirihleovog principa na probleme iz geometrije']
+                  },
+                  {
+                    naslov: 'RAZLOMCI',
+                    gradiva: ['Pojam, proširivanje i skraćivanje razlomaka','Upoređivanje razlomaka', 'Decimalni zapis razlomaka','Procentni zapis razlomka', 'Operacije sa razlomcima', 'Primena operacija na rešavanje problemskih zadataka', 'Dvojni razlomci i primena', 'Jednačine i primena','Nejednačine i primena', 'Približna vrednost broja']
+                  },
+                  {
+                    naslov: 'OSNA SIMETRIJA',
+                    gradiva: ['Osna simetrija u ravni', 'Simetrala duži','Simetrala ugla', 'Problemski zadaci']
+                  },
+                ]
+              },
+              {
+                    razred: 'VI Razred',
+                    lekcije: [
+                  {
+                    naslov: 'CELI BROJEVI',
+                    gradiva: ['Kongruencije po modulu – osnovni pojmovi']
+                  },
+                  {
+                    naslov: 'APSOLUTNA VREDNOST BROJA',
+                    gradiva: []
+                  },
+                  {
+                    naslov: 'RACIONALNI BROJEVI',
+                    gradiva: []
+                  },
+                  {
+                    naslov: 'TROUGAO',
+                    gradiva: ['Odnos stranica i uglova', 'Stavovi podudarnosti', 'Konstruktivni zadaci o trouglu', 'Značajne tačke trougla', 'Planimetrijski dokazi vezani za trougao i značajne tačke']
+                  },
+                  {
+                    naslov: 'ČETVOROUGAO',
+                    gradiva: ['Uglovi četvorougla','Vrste četvorougla, osobine', 'Konstruktivni zadaci vezani za četvorougao','Planimetrijski zadaci vezani za četvorougao']
+                  },
+                  {
+                    naslov: 'POVRŠINE',
+                    gradiva: ['Površina kvadrata i pravougaonika','Površina paralelograma', 'Površina trougla','Površina trapeza', 'Površine četvorougla sa normalnim dijagonalama']
+                  },
+            ]
+           },
+           {
+                razred: 'VII Razred',
+                lekcije: [
+              {
+                naslov: 'REALNI BROJEVI',
+                gradiva: ['Kvadrat racionalnog broja', 'Kvadratni koren', 'Iracionalni broj', 'Približna vrednost realnog broja']
+              },
+              {
+                naslov: 'PITAGORINA TEOREMA',
+                gradiva: ['Dokazi Pitagorine teoreme', 'Primena na pravougaonik i kvadrat', 'Primena na jednakokraki i jednakostranični trougao', 'Primena na romb i trapez']
+              },
+              {
+                naslov: 'RACIONALNI ALGEBARSKI IZRAZI',
+                gradiva: ['Stepen čiji je izložilac prirodni broj', 'Operacije sa stepenima', 'Algebarski izrazi', 'Polinomi', 'Sabiranje polinoma', 'Množenje polinoma', 'Razlika kvadrata i kvadrat binoma', 'Rastavljanje polinoma na činioce']
+              },
+              {
+                naslov: 'MNOGOUGAO',
+                gradiva: ['Pojam mnogougla, broj dijagonala, zbir unutrašnjih uglova mnogougla', 'Pravilni mnogougli, pojam i svojstva', 'Konstrukcije', 'Obim i površina']
+              },
+              {
+                naslov: 'KRUG',
+                gradiva: ['Kružna linija. Centralni i periferijski ugao', 'Tangenta kruga', 'Obim kruga  ( kružnice )', 'Dužina kružnog luka', 'Površina kruga i njegovih delova', 'Tetivni i tangentni četvorougao']
+              },
+              {
+                naslov: 'FUNKCIJE',
+                gradiva: ['Pravougli koordinatni sistem u ravni', 'Funkcija i njen grafik', 'Direktna i obrnuta proporcionalnost', 'Primena proporcionalnosti']
+              },
+              {
+                naslov: 'SLIČNOST',
+                gradiva: ['Merenje duži. Samerljive i nesamerljive duži', 'Razmera duži. Proporcionalne duži', 'Talesova teorema', 'Pojam sličnosti', 'Sličnost trouglova', 'Primena sličnosti na pravougli trougao']
+              },
+            ]
+           },
+           {
+                razred: 'VIII Razred',
+                lekcije: [
+              {
+                naslov: 'TAČKA, PRAVA I RAVAN',
+                gradiva: ['Tačka, prava i ravan – međusobni odnosi', 'Odnos dveju ravni. Diedar ( Ortogonalna projekcija, Poliedar )']
+              },
+              {
+                naslov: 'LINEARNE JEDNAČINE I NEJEDNAČINE SA JEDNOM NEPOZNATOM',
+                gradiva: ['Rešavanje linearnih jednačina', 'Primena', 'Rešavanje linearnih nejednačina', 'Primena']
+              },
+              {
+                naslov: 'PRIZMA',
+                gradiva: ['Površina i zapremina']
+              },
+              {
+                naslov: 'PIRAMIDA',
+                gradiva: ['Površina i zapremina']
+              },
+              {
+                naslov: 'LINEARNA FUNKCIJA',
+                gradiva: ['Grafik funkcije y=kx+n', 'Primena na problemske zadatke']
+              },
+              {
+                naslov: 'SISTEMI LINEARNIH J-NA SA DVE NEPOZNATE',
+                gradiva: ['Rešavanje sistema dve linearne jednačine sa dve nepoznate', 'Primena']
+              },
+              {
+                naslov: 'VALJAK',
+                gradiva: ['Površina I zapremina valjka', 'primena']
+              },
+              {
+                naslov: 'KUPA',
+                gradiva: ['Površina I zapremina', 'primena']
+              },
+              {
+                naslov: 'LOPTA',
+                gradiva: ['Površina I zapremina', 'primena']
+              },
+            ]
+           }
+          ]           
+         }
+        },
+        methods: {
+          toggleActive(e) { 
+            const accordionItemHeader = e.target
+             //toggle class
+             accordionItemHeader.classList.toggle("active");
+             //get body
+             const accordionItemBody = accordionItemHeader.nextElementSibling;
+              //check if it has the class of active
+             if (accordionItemHeader.classList.contains("active")) {
+                 // add body height if active
+               accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
+            } else {
+              // if not active, height = 0
+              accordionItemBody.style.maxHeight = 0;
+            }
+          }
+        },
+      })
+
+      let nastavnoGradivoSS = new Vue ({
+        el: '#nastavnoGradivoSS',
+        data() {
+          return {
+            razredi: [
+              {
+                razred: 'I Godina',
+                lekcije: [
+                  {
+                    naslov: 'LOGIKA I SKUPOVI',
+                    gradiva: ['Osnovne logičke operacije', 'Osnovne skupovne operacije', 'Relacije i funkcije']
+                  },
+                  {
+                    naslov: 'REALNI BROJEVI',
+                    gradiva: ['Realni brojevi - obnavljanje', 'Apsolutna vrednost broja', 'Zaokrugljivanje brojeva i obrada podataka-obnavljanje', 'Deljivost brojeva' ]
+                  },
+                  {
+                    naslov: 'PROPORCIONALNOST',
+                    gradiva: ['Direktna i obrnuta proporcionalnost', 'Račun raspodele i mešanja', 'Procentni račun', 'Prost kamatni račun', 'Složen kamatni račun']
+                  },
+                  {
+                    naslov: 'RACIONALNI ALGEBARSKI IZRAZI',
+                    gradiva: ['Polinomi sa jednom promenljivom', 'Rastavljanje na činioce', 'Operacije sa algebarskim izrazima', 'Linearne jednačine', 'Linearne nejednačine', 'Linearna funkcija i njen grafik', 'Sistemi jednačina i primena']
+                  },
+                  {
+                    naslov: 'GEOMETRIJA',
+                    gradiva: ['Tačka, prava, ravan. Odnosi pripadanja i rasporeda', 'Vektori', 'O trouglu - teorijske napomene', 'O četvorouglu - teorijske napomene', 'O krugu - teorijske napomene', 'Podudarnost trouglova - zadaci', 'Osna simetrija', 'Centralna simetrija', 'Translacija', 'Rotacija']
+                  },
+                  {
+                    naslov: 'HOMOTETIJA I SLIČNOST',
+                    gradiva: ['Talesova teorema', 'Homotetija', 'Sličnost trouglova', 'Primena sličnosti kod pravouglog trougla']
+                  },
+
+                ]
+              },
+              {
+                razred: 'II Godina',
+                lekcije: [
+                  {
+                    naslov: 'STEPENOVANJE I KORENOVANJE',
+                    gradiva: ['Stepenovanje', 'Korenovanje', 'Kompleksni brojevi']
+                  },
+                  {
+                    naslov: 'KVADRATNA JEDNAČINA I KVADRATNA FUNKCIJA',
+                    gradiva: ['Kvadratna jednačina', 'Vietove formule', 'Neke jednačine koje se svode na kvadratne', 'Iracionalne jednačine', 'Iracionalne nejednačine', 'Kvadratna nejednačina', 'Kvadratna funkcija', 'Sistemi kvadratnih jednačina sa dve nepoznate']
+                  },
+                  {
+                    naslov: 'EKSPONENCIJALNA I LOGARITAMSKA FUNKCIJA',
+                    gradiva: ['Eksponencijalne funkcije', 'Eksponencijalne jednačine', 'Eksponencijalne nejednačine', 'Logaritamska funkcija', 'Logaritamske jednačine i nejednačine', 'Sistem logaritamskih jednačina sa dve nepoznate']
+                  },
+                  {
+                    naslov: 'TRIGONOMETRIJA',
+                    gradiva: ['Trigonometrijske funkcije oštrog ugla', 'Trigonometrijski krug', 'Svodjenje na prvi kvadrant', 'Adicione formule ( Trigonometrijske funkcije dvostrukog ugla, Trigonometrijske funkcije poluuglova, Transformacija zbira i razlike u proizvod i obrnuto)', 'Trigonometrijske jednačine', 'Trigonometrijske nejednačine', 'Sinusna i kosinusna teorema', 'Grafici trigonometrijskih funkcija']
+                  }                  
+                ]
+              },
+              {
+                razred: 'III Godina',
+                lekcije: [
+                  {
+                    naslov: 'PLANIMETRIJA I POLIEDRI',
+                    gradiva: ['Mnogougao', 'Trougao', 'Četvorougao', 'Krug', 'Prizme', 'Piramida i zarubljena piramida']
+                  },
+                  {
+                    naslov: 'OBRTNA TELA',
+                    gradiva: ['Valjak', 'Kupa i zarubljena kupa', 'Lopta i delovi lopte']
+                  },
+                  {
+                    naslov: 'DETERMINANTE I SISTEMI JEDNAČINA',
+                    gradiva: ['Determinante', 'Rešavanje sistema jednačina ( metoda determinanti )']
+                  },
+                  {
+                    naslov: 'VEKTORI',
+                    gradiva: ['Vektori u ravni i prostoru']
+                  },
+                  {
+                    naslov: 'ANALITIČKA GEOMETRIJA U RAVNI',
+                    gradiva: ['Tačka i prava', 'Kružnica', 'Elipsa', 'Hiperbola', 'Parabola']
+                  },
+                  {
+                    naslov: 'NIZOVI',
+                    gradiva: ['Matematička indukcija', 'Aritmetički niz', 'Geometrijski niz']
+                  },
+                  {
+                    naslov: 'KOMPLEKSNI BROJEVI',
+                    gradiva: ['Trigonometrijski oblik kompleksnog broja', 'Polinomi nad poljem kompleksnih brojeva']
+                  },
+                  
+                ]
+              },
+              {
+                razred: 'IV Godina',
+                lekcije: [
+                  {
+                    naslov: 'REALNE FUNKCIJE',
+                    gradiva: ['Funkcionalne jednačine', 'Inverzna funkcija', 'Kompozicija funkcija', 'Oblast definisanosti funkcije', 'Nule funkcije i znak funkcije', 'Parnost i neparnost funkcije']
+                  },
+                  {
+                    naslov: 'IZVOD FUNKCIJE',
+                    gradiva: ['Izvod funkcije', 'Izvod složene funkcije']
+                  },
+                  {
+                    naslov: 'GRANIČNE VREDNOSTI FUNKCIJE',
+                    gradiva: ['Granične vrednosti funkcija', 'Asimptote funkcija', 'Lopitalovo pravilo']
+                  },
+                  {
+                    naslov: 'ISPITIVANJE TOKA I SKICIRANJE GRAFIKA',
+                    gradiva: ['Elementarne funkcije - grafici', 'Oblast definisanosti funkcije', 'Nule funkcije i znak funkcije', 'Parnost i neparnost funkcije. Periodičnost', 'Ekstremne vrednosti i monotonost funkcije', 'Prevojne tačke. Konveksnost i konkavnost', 'Asimptote funkcija ( Ponašanje funkcije na krajevima oblasti definisanosti )', 'Grafici funkcija']
+                  },
+                  {
+                    naslov: 'INTEGRALI',
+                    gradiva: ['Neodređen integral', 'Integracija metodom smena', 'Parcijalna integracija', 'Određen integral', 'Primena određenog integrala za izračunavanje površina ravnih figura']
+                  },                  
+                ]
+              }
+            ]
+          }
+        },        
+        methods: {
+          toggleActive(e) { 
+        const accordionItemHeader = e.target
+          //toggle class
+          accordionItemHeader.classList.toggle("active");
+
+            //get body
+            const accordionItemBody = accordionItemHeader.nextElementSibling;
+            //check if it has the class of active
+            if (accordionItemHeader.classList.contains("active")) {
+              // add body height if active
+              accordionItemBody.style.maxHeight =
+                accordionItemBody.scrollHeight + "px";
+            } else {
+              // if not active, height = 0
+              accordionItemBody.style.maxHeight = 0;
+            }
+          }
+        },
+      })
+
+      let form = new Vue({
+        el: "#form",
+        data() {
+          return {
+            skola: null
+          }
+        },
+      })
+    </script>
+
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+crossorigin="anonymous"
+></script>
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"
+integrity="sha512-AIOTidJAcHBH2G/oZv9viEGXRqDNmfdPVPYOYKGy3fti0xIplnlgMHUGfuNRzC6FkzIo0iIxgFnr9RikFxK+sw=="
+crossorigin="anonymous"
+></script>
+<script>
+  //Datepicker
+$.datetimepicker.setLocale("sr-YU");
+jQuery("#datetimepicker").datetimepicker({
+  minTime: '12:00',
+  maxTime: '18:00',
+  step: 30,
+  format: "d/M/Y H:i",
+  minDate: 0,
+  dayOfWeekStart: 1,
+});
+</script>
+  </body>
+</html>
