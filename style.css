@@ -596,11 +596,23 @@ textarea {
   margin-top: 20px;
   padding: 0;
   background-color: Transparent;
-  background-repeat: no-repeat;
+  
   border: none;
   cursor: pointer;
   overflow: hidden;
   outline: none;
+  transition: 0.5s;
+}
+.sendBtn .fas {
+  font-size: 0px;
+  transition: 0.5s;
+}
+.sendBtn:hover {
+  color: #25d366;
+}
+.sendBtn:hover .fas {
+  font-size: 20px;
+  color: #25d366;
 }
 
 footer {
@@ -670,20 +682,28 @@ footer .container {
   box-shadow: inset -1px -1px 2px #3755a0, 10px 14px 11px #5273c583;
 }
 .social li:nth-child(2) a:hover {
-  color: #7d32aa;
+  color: #EF3A4E;
   transform: translateY(-5px);
-  box-shadow: inset -1px -1px 2px #7d32aa, 10px 14px 11px #a451d47a;
+  box-shadow: inset -1px -1px 2px #EF3A4E, 10px 14px 11px #f85c6e8e;
 }
 .social li:nth-child(3) a:hover {
   color: #25d366;
   transform: translateY(-5px);
   box-shadow: inset -1px -1px 2px #25d366, 10px 14px 11px #60ff9a7c;
 }
+.social li:nth-child(4) a:hover {
+  color: #834995;
+  transform: translateY(-5px);
+  box-shadow: inset -1px -1px 2px #834995, 10px 14px 11px #a767bb9a;
+}
 
 /*  ============
     == MOBILE ==
     ============ */
 @media screen and (max-width: 1140px) {
+  body {    
+    font-size: 13px;
+  }
   .heroContent h1 {
     font-size: 2.2rem;
   }
