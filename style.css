@@ -161,7 +161,7 @@ nav {
   padding-right: 5%;
   padding-top: 2em;
   height: 100%;
-    justify-content: center;
+  justify-content: center;
 }
 .heroContent h1 {
   font-size: 3rem;
@@ -630,8 +630,6 @@ footer .container {
   line-height: 0.5rem;
 }
 
-
-
 .social {
   display: flex;
   min-width: 50%;
@@ -682,10 +680,17 @@ footer .container {
   box-shadow: inset -1px -1px 2px #25d366, 10px 14px 11px #60ff9a7c;
 }
 
-
 /*  ============
     == MOBILE ==
     ============ */
+@media screen and (max-width: 1140px) {
+  .heroContent h1 {
+    font-size: 2.2rem;
+  }
+  .heroContent p {
+    line-height: 2em;
+  }
+}
 
 @media screen and (max-width: 768px) {
   body {
@@ -724,7 +729,6 @@ footer .container {
     transform: translateX(0);
   }
 
-
   .heroContainer {
     justify-content: center;
     align-items: center;
@@ -732,7 +736,6 @@ footer .container {
   .contentContainer {
     margin: 0;
     align-items: center;
-    
   }
   .heroContent {
     align-items: center;
@@ -781,7 +784,6 @@ footer .container {
   }
   .social {
     width: 100%;
-
   }
 }
 
