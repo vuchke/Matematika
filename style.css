@@ -51,6 +51,7 @@ nav {
 
 .logo img {
   width: 100px;
+  max-height: 100px;
 }
 .nav-links {
   display: flex;
@@ -792,6 +793,14 @@ footer .container {
   }
   .priceContent p:first-child{
     font-size: 2rem;
+  }
+  .contentBox {
+    padding: 40px 10px;
+  }
+  .contentBox p {
+    font-size: 0.7rem;
+    padding: 0.5em;
+   
   }
 }
 
