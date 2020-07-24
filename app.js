@@ -26,7 +26,7 @@ const navSlide = () => {
 
 VanillaTilt.init(document.querySelectorAll(".box"), {
   reverse: false,
-  max: 15,
+  max: 25,
   speed: 1000,
   glare: true, // if it should have a "glare" effect
   gyroscope: true, // Boolean to enable/disable device orientation detection
