@@ -10,6 +10,8 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
@@ -58,7 +60,7 @@
         </div>
       </section>
 
-      <section>
+      <section id="matematika">
         <h1 class="tiltHeading">Matematika</h1>
         <div class="containerBox">
 
@@ -234,21 +236,21 @@
       <section id="contact">
         <div class="contactForm">
           <div class="shade">
-            <div class="blackboard">
-              <div class="form" id="form">
+            <div class="blackboard" id="form">
+              <div class="form"  v-if='!formSent'>
                 <p>
                   <label>Ime i Prezime: </label>
-                  <input type="text" placeholder="Unesite Ime" name="ime" class="fullWidth" />
+                  <input type="text" placeholder="Unesite Ime" name="ime" class="fullWidth" v-model='ime' />
                 </p>
 
                 <p>
                   <label>Broj Telefona: </label>
-                  <input type="tel" placeholder="Unesite Broj" name="broj" class="fullWidth" />
+                  <input type="tel" placeholder="Unesite Broj" name="broj" class="fullWidth" v-model='telefon' />
                 </p>
 
                 <p>
                   <label>*Email: </label>
-                  <input type="text" placeholder="Unesite Email" name="email" class="fullWidth" /> <br />
+                  <input type="email" placeholder="Unesite Email ( nije obavezno )" name="email" class="fullWidth" v-model='email' /> <br />
                   
                 </p>
 
@@ -272,37 +274,37 @@
                     <p v-if='skola == "Osnovna Skola"'>
                       <label>Izaberite razred:</label> <br />
 
-                    <input type="radio" id="V" name="razred" value="V" />
+                    <input type="radio" id="V" name="razred" value="V" v-model='razred' />
                     <label for="V" class="small">V razred</label> <br>
-                    <input type="radio" id="VI" name="razred" value="VI" />
+                    <input type="radio" id="VI" name="razred" value="VI" v-model='razred' />
                     <label for="VI" class="small">VI razred</label> <br>
-                    <input type="radio" id="VII" name="razred" value="VII" /> 
+                    <input type="radio" id="VII" name="razred" value="VII" v-model='razred' /> 
                     <label for="VII" class="small">VII razred</label><br>
-                    <input type="radio" id="VIII" name="razred" value="VIII" />
+                    <input type="radio" id="VIII" name="razred" value="VIII" v-model='razred' />
                     <label for="VIII" class="small" >VIII razred</label>
                     </p> 
 
                     <p v-if='skola == "Srednja Skola"'>
                       <label>Izaberite razred:</label> <br />
-                    <input type="radio" id="I" name="razred" value="I" />
+                    <input type="radio" id="I" name="razred" value="I" v-model='razred' />
                     <label for="I" class="small">I razred</label> <br>
-                    <input type="radio" id="II" name="razred" value="II" />
+                    <input type="radio" id="II" name="razred" value="II" v-model='razred' />
                     <label for="II" class="small">II razred</label> <br>
-                    <input type="radio" id="III" name="razred" value="III" /> 
+                    <input type="radio" id="III" name="razred" value="III" v-model='razred' /> 
                     <label for="III" class="small">III razred</label><br>
-                    <input type="radio" id="IV" name="razred" value="IV" />
+                    <input type="radio" id="IV" name="razred" value="IV" v-model='razred' />
                     <label for="IV" class="small" >IV razred</label>
                     </p> 
 
                     <p v-if='skola == "Fakultet"'>
                       <label>Izaberite Godinu:</label> <br />
-                    <input type="radio" id="I" name="razred" value="I" />
+                    <input type="radio" id="I" name="razred" value="I" v-model='razred' />
                     <label for="I" class="small">I Godina</label> <br>
-                    <input type="radio" id="II" name="razred" value="II" />
+                    <input type="radio" id="II" name="razred" value="II" v-model='razred' />
                     <label for="II" class="small">II Godina</label> <br>
-                    <input type="radio" id="III" name="razred" value="III" /> 
+                    <input type="radio" id="III" name="razred" value="III" v-model='razred' /> 
                     <label for="III" class="small">III Godina</label><br>
-                    <input type="radio" id="IV" name="razred" value="IV" />
+                    <input type="radio" id="IV" name="razred" value="IV" v-model='razred' />
                     <label for="IV" class="small" >IV Godina</label>
                     </p>
                 </p>
@@ -313,23 +315,34 @@
                       id="datetimepicker"                      
                       type="text"
                       name="date"                     
-                      placeholder="Pocetak casa"                    
+                      placeholder="Pocetak casa"
+                      ref='inputVreme' 
+                      v-model='vreme'                   
                     />
-                </p>
-
-                <p>
+                <br>
                   <label>Nastavna Tema: </label> <br>
-                  <textarea placeholder="Gradivo koje ucimo" name="gradivo" class="fullWidth"></textarea>
+                  <textarea placeholder="Gradivo koje ucimo ( nije obavezno )" name="gradivo" class="fullWidth" v-model='gradivo'></textarea>
                 </p>
                 <p class="wipeout">
                   <!-- <input type="submit" value="Send" /> -->
-                  <button class="sendBtn"><i class="fas fa-paper-plane"></i>
-                    Posalji</button>
+                  <button class="sendBtn" @click.prevent='checkForm'>
+                    <lottie-player class="icon" src='./icons/177-envelope-mail-send-outline-edited.json'  background="transparent"  speed="1"  autoplay loop  ></lottie-player>
+                    Posalji</button>                  
+                </p>
+                <p v-if="errors.length" class="errorsInForm">
+                  <lottie-player style="width: 50px; height: 50px; display: inline;" src='./icons/error.json'  background="transparent"  speed="1"  autoplay loop  ></lottie-player>
+                 <span> <b>Doslo je do greske!</b> <br>
+                    <b> Molimo vas proverite sledeca polja:</b> </span>
+                  <ul class="errorList" >
+                    <li v-for='error in errors' style="color: rgb(255, 83, 83);"> {{ error }}</li>
+                  </ul>
                   
                 </p>
                 <span style="font-size: 8px; color: white;"
                     >* Na email dobijate rezultate domacih zadataka</span
                   >
+              </div>
+              <div v-if='formSent'>  <lottie-player  class="icon" src='./icons/approved.json'  background="transparent"  speed="1"  autoplay loop  ></lottie-player>
               </div>
             </div>
           </div>
@@ -339,9 +352,7 @@
     <footer>
       <div class="footer">
         <div class="container">
-          <!-- <div class="first">
-            <img src='http://unsplash.it/100/100?random&gravity=center' alt=''/>
-          </div> -->
+      
           
           <div class="contact">
             <h3 style="margin-bottom: 20px;">Kontakt informacije</h3>
@@ -684,7 +695,39 @@
         el: "#form",
         data() {
           return {
-            skola: null
+            formSent: false,
+            errors: [],
+            ime: null,
+            telefon: null,
+            email: null,
+            skola: null,
+            razred: null,
+            vreme: null,
+            gradivo: null
+          }
+        },
+        methods: {
+          checkForm(e) {
+            this.vreme = this.$refs.inputVreme.value
+            this.errors = [];
+
+            if (!this.ime) {
+              this.errors.push("Ime i Prezime")
+            }
+            if (!this.telefon) {
+              this.errors.push("Broj Telefona")
+            }
+            if (!this.skola) {
+              this.errors.push("Izaberite skolu")
+            }
+           
+            if (!this.vreme) {
+              this.errors.push("Zakazite Termin:")
+            }
+            if (!this.errors.length) {
+              this.formSent = true
+              return true;
+            }
           }
         },
       })
@@ -711,6 +754,7 @@ jQuery("#datetimepicker").datetimepicker({
   minDate: 0,
   dayOfWeekStart: 1,
 });
+
 </script>
 <script type="text/javascript" src="vanilla-tilt.js"></script>
 <script src="app.js"></script>
