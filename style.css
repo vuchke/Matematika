@@ -216,6 +216,7 @@ nav {
   text-align: center;
   font-size: 3rem;
   margin-top: 60px;
+  color: #36215c;
 }
 .containerBox {
   position: relative;
@@ -251,15 +252,15 @@ nav {
 }
  .box:nth-child(1) .imgBox{ 
   
-    background-image: url('./img/annie-spratt-ORDz1m1-q0I-unsplash.jpg');
+    background-image: url('./img/childLearning.jpg');
 }
  .box:nth-child(2) .imgBox{ 
   
-    background-image: url('./img/green-chameleon-s9CC2SKySJM-unsplash.jpg');
+    background-image: url('./img/learning.jpg');
 }
  .box:nth-child(3) .imgBox{ 
   
-    background-image: url('./img/scott-graham-5fNmWej4tAA-unsplash.jpg');
+    background-image: url('./img/learningLaptop.jpg');
 }
 
 .containerBox .box .contentBox {
@@ -286,6 +287,8 @@ nav {
 .contentBox p {
   font-size: 0.8rem;
   padding: 1em;
+  font-weight: 500;
+  line-height: 1.5em;
 }
 
 /* Teme */
