@@ -22,11 +22,19 @@ const navSlide = () => {
   });
 };
 
+// TITL
+
+VanillaTilt.init(document.querySelectorAll(".box"), {
+  reverse: false,
+  max: 15,
+  speed: 1000,
+  glare: true, // if it should have a "glare" effect
+  gyroscope: true, // Boolean to enable/disable device orientation detection
+});
 
 // here we call all functions
 const app = () => {
   navSlide();
-  
 };
 // we invoke all the functions
 app();
