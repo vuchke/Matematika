@@ -32,10 +32,10 @@ const tilt = () => {
     max: 5,
     speed: 1000,
     gyroscope: true,
-    gyroscopeMinAngleX: -20,
-    gyroscopeMaxAngleX: 20,
-    gyroscopeMinAngleY: -15,
-    gyroscopeMaxAngleY: -2,
+    gyroscopeMinAngleX: -45,
+    gyroscopeMaxAngleX: 45,
+    gyroscopeMinAngleY: -45,
+    gyroscopeMaxAngleY: 45,
     
   });
 }
