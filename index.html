@@ -11,9 +11,16 @@
     />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-
+  
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("user_H0Q7wINANpg8FaCRhxdJp");
+       })();
+    </script>
+    
   </head>
   <body>
     <!-- Navigation -->
@@ -237,25 +244,27 @@
         <div class="contactForm">
           <div class="shade">
             <div class="blackboard" id="form">
+              <h1 class="formHeading">Kontakt</h1>
               <div class="form"  v-if='!formSent'>
-                <p>
-                  <label>Ime i Prezime: </label>
-                  <input type="text" placeholder="Unesite Ime" name="ime" class="fullWidth" v-model='ime' />
-                </p>
+                <form @submit.prevent='checkForm'>
+                <section>
+                  <label for="name">Ime i Prezime: </label>
+                  <input type="text" id="name" placeholder="Unesite Ime" name="ime" class="fullWidth" v-model='ime' />
+                </section>
 
-                <p>
-                  <label>Broj Telefona: </label>
-                  <input type="tel" placeholder="Unesite Broj" name="broj" class="fullWidth" v-model='telefon' />
-                </p>
+                <section>
+                  <label for="tel">Broj Telefona: </label>
+                  <input type="tel" id="tel" placeholder="Unesite Broj" name="broj" class="fullWidth" v-model='telefon' />
+                </section>
 
-                <p>
-                  <label>*Email: </label>
-                  <input type="email" placeholder="Unesite Email ( nije obavezno )" name="email" class="fullWidth" v-model='email' /> <br />
+                <section>
+                  <label for="email">*Email: </label>
+                  <input type="email" id="email" placeholder="Unesite Email ( nije obavezno )" name="email" class="fullWidth" v-model='email' /> <br />
                   
-                </p>
+                </section>
 
-                <p>
-                  <label>Izaberite skolu:</label> <br />
+                <section>
+                  <label >Izaberite skolu:</label> <br />
 
                   <input type="radio" id="osnovna" name="skola" value="Osnovna Skola" v-model='skola' />
                   <label for="osnovna" class="small">Osnovna Skola</label> <br>
@@ -265,12 +274,9 @@
                   <label for="zavrsni" class="small">Zavrsni Ispiti (Mala Matura)</label><br>
                   <input type="radio" id="fakultet" name="skola" value="Fakultet" v-model='skola' />
                   <label for="fakultet" class="small">Fakultet</label>
-                </p>
-                <p>
-                       
-                 
-                   
+                </section>
 
+                <section>   
                     <p v-if='skola == "Osnovna Skola"'>
                       <label>Izaberite razred:</label> <br />
 
@@ -307,10 +313,15 @@
                     <input type="radio" id="IV" name="razred" value="IV" v-model='razred' />
                     <label for="IV" class="small" >IV Godina</label>
                     </p>
-                </p>
+                </section>
 
-                <p>
-                  <label for="date">Zakazite Termin:</label> <br>
+               
+                    <section>
+                  <label for="gradivo">Nastavna Tema: </label> <br>
+                  <textarea placeholder="Gradivo koje ucimo ( nije obavezno )" id="gradivo" name="gradivo" class="fullWidth" v-model='gradivo'></textarea>
+                </section>
+                <section>
+                  <label for="datetimepicker">Zakazite Termin:</label> <br>
                   <input                    
                       id="datetimepicker"                      
                       type="text"
@@ -319,20 +330,18 @@
                       ref='inputVreme' 
                       v-model='vreme'                   
                     />
-                <br>
-                  <label>Nastavna Tema: </label> <br>
-                  <textarea placeholder="Gradivo koje ucimo ( nije obavezno )" name="gradivo" class="fullWidth" v-model='gradivo'></textarea>
-                </p>
+                    </section>
                 <p class="wipeout">
-                  <!-- <input type="submit" value="Send" /> -->
-                  <button class="sendBtn" @click.prevent='checkForm'>
+                  
+                  <button type="submit" class="sendBtn"  >
                     <lottie-player class="icon" src='./icons/177-envelope-mail-send-outline-edited.json'  background="transparent"  speed="1"  autoplay loop  ></lottie-player>
                     Posalji</button>                  
+                    
                 </p>
                 <p v-if="errors.length" class="errorsInForm">
-                  <lottie-player style="width: 50px; height: 50px; display: inline;" src='./icons/error.json'  background="transparent"  speed="1"  autoplay loop  ></lottie-player>
+                  <lottie-player style="width: 50px; height: 50px;" src='./icons/error.json'  background="transparent"  speed="1"  autoplay loop  ></lottie-player>
                  <span> <b>Doslo je do greske!</b> <br>
-                    <b> Molimo vas proverite sledeca polja:</b> </span>
+                    Molimo vas proverite sledeca polja:</span>
                   <ul class="errorList" >
                     <li v-for='error in errors' style="color: rgb(255, 83, 83);"> {{ error }}</li>
                   </ul>
@@ -341,8 +350,13 @@
                 <span style="font-size: 8px; color: white;"
                     >* Na email dobijate rezultate domacih zadataka</span
                   >
+                </form>
               </div>
-              <div v-if='formSent'>  <lottie-player  class="icon" src='./icons/approved.json'  background="transparent"  speed="1"  autoplay loop  ></lottie-player>
+              <div v-if='formSent' class="formSent">  <lottie-player  class="icon" src='./icons/approved.json'  background="transparent"  speed="1"  autoplay loop  ></lottie-player>
+                <h2>Poruka Poslata!</h2>
+                <p>Uspesno ste poslali podatke za zakazivanje!</p>
+                <p>Uskoro sledi odgovor sa nase strane!</p>
+                <p>Hvala!</p>
               </div>
             </div>
           </div>
@@ -391,6 +405,7 @@
     ></script>
     
     <script>
+      
 
       let nastavnoGradivoOS = new Vue ({
         el: '#nastavnoGradivoOS',
@@ -707,9 +722,14 @@
           }
         },
         methods: {
+          
           checkForm(e) {
             this.vreme = this.$refs.inputVreme.value
             this.errors = [];
+
+            if (this.ime && this.telefon && this.skola && this.vreme) {
+              this.sendEmail(e)
+            }
 
             if (!this.ime) {
               this.errors.push("Ime i Prezime")
@@ -722,13 +742,22 @@
             }
            
             if (!this.vreme) {
-              this.errors.push("Zakazite Termin:")
+              this.errors.push("Zakazite Termin")
             }
-            if (!this.errors.length) {
-              this.formSent = true
-              return true;
-            }
-          }
+
+          
+
+          },
+          sendEmail(e){
+           
+            emailjs.sendForm('gmail', 'casovi', e.target, 'user_H0Q7wINANpg8FaCRhxdJp')
+               .then((result) => {
+                this.formSent = true
+               console.log('SUCCESS!', result.status, result.text);
+                }, (error) => {
+                 console.log('FAILED...', error);
+            });
+          },
         },
       })
     </script>

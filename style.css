@@ -299,11 +299,11 @@ nav {
   font-size: 1.5rem;
 }
 .contentBox p {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   padding: 1em;
   font-weight: 500;
-  line-height: 1.5em;
-  text-align: justify;
+  line-height: 1.2em;
+  text-align: center;
 }
 
 /* Teme */
@@ -567,6 +567,14 @@ nav {
   /* min-height: 100%; */
   position: relative;
 }
+.formHeading{
+ 
+  font-family: "Permanent Marker", cursive;
+  font-size: 2.2rem;
+  color: rgba(238, 238, 238, 0.911);
+  text-align: center;
+  padding-top: 20px;
+}
 .shade {
   overflow: auto;
   position: relative;
@@ -634,16 +642,11 @@ nav {
       transparent
     );
   border: #2c2c2c solid 2px;
-  content: "Kontakt";
-  font-family: "Permanent Marker", cursive;
-  font-size: 2.2rem;
-  color: rgba(238, 238, 238, 0.911);
-  text-align: center;
-  padding-top: 20px;
+  
 }
 
 .form {
-  padding: 70px 20px 20px;
+  padding: 70px 20px 20px;  
 }
 
 p {
@@ -676,13 +679,12 @@ textarea {
   color: rgba(238, 238, 238, 0.8);
   line-height: 0.6em;
   outline: none;
+  border-bottom: 1px solid #363636;
 }
 .fullWidth {
   width: 100%;
 }
-textarea {
-  font-size: 1.2rem;
-}
+
 input::placeholder {
   font-size: 0.8rem;
 }
@@ -734,6 +736,22 @@ textarea {
 .errorList {
   margin-left: 20px
 }
+.formSent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.formSent .icon {
+  max-width: 20%;
+}
+.formSent h2 {
+  color:#25d366;
+  margin: 1em 0;
+}
+.formSent p {
+  color: rgba(238, 238, 238, 0.911);
+  line-height: 0.5rem;
+}
 
 
 footer {
@@ -751,7 +769,7 @@ footer .container {
   padding: 35px 1.5em 0 1.5em;
 }
 .contact {
-  /* background-color: red; */
+  
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -937,7 +955,7 @@ footer .container {
     width: 100%;
   }
 }
-
+/* navlinks animation */
 @keyframes navLinkFade {
   from {
     opacity: 0;
@@ -948,7 +966,7 @@ footer .container {
     transform: translateX(0px);
   }
 }
-
+/* burger animation */
 .toggle .line1 {
   transform: rotate(-45deg) translate(-5px, 6px);
 }

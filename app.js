@@ -24,18 +24,21 @@ const navSlide = () => {
 
 // TITL
 
-VanillaTilt.init(document.querySelectorAll(".box"), {
-  reverse: false,
-  reset: true ,
-  max: 25,
-  speed: 1000,
+const tilt = () => {
   
-  gyroscope: true, // Boolean to enable/disable device orientation detection
-});
+  VanillaTilt.init(document.querySelectorAll(".box"), {
+    reverse: false,
+    reset: true,
+    max: 25,
+    speed: 1000,
+
+  });
+}
 
 // here we call all functions
 const app = () => {
   navSlide();
+  tilt();
 };
 // we invoke all the functions
 app();
