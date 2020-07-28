@@ -297,6 +297,7 @@ nav {
   color: #36215c;
   padding-bottom: 15px;
   font-size: 1.5rem;
+  text-align: center;
 }
 .contentBox p {
   font-size: 0.7rem;
@@ -954,7 +955,15 @@ footer .container {
   .social {
     width: 100%;
   }
+
+  .containerBox .box .contentBox{
+    padding: 10px 5px;
+    right: 30px;
+    left: 30px;
+  }
 }
+
+
 /* navlinks animation */
 @keyframes navLinkFade {
   from {
