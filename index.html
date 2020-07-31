@@ -2,14 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css"
@@ -18,9 +11,9 @@
     />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-  
+    <script src="https://unpkg.com/scrollreveal"></script>
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <title>Casovi Matematike</title>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
     <script type="text/javascript">
        (function(){
@@ -61,7 +54,7 @@
           <video autoplay muted loop id="myVideo">
             <source src="./video/heroBackground.mp4" type="video/mp4" />
           </video>
-          <div class="heroContent">
+          <div class="heroContent animate-right">
             <div class="contentContainer">
               <h1>Da li želite da naučite Matematiku?</h1>
               <p>
@@ -75,7 +68,7 @@
       </section>
 
       <section id="matematika">
-        <h1 class="tiltHeading">Matematika</h1>
+        <h1 class="tiltHeading">Sta Je Matematika?</h1>
         <div class="containerBox">
 
           <div class="box"> 
@@ -111,11 +104,29 @@
         </div>
       </section>
 
+      <section class="about-me">
+        <div class="container">
+          <div class="about-info">
+            <div class="about-textContainer animate-left">
+              <h1>Malo o meni...</h1>
+              <div class="icon"><i class="fas fa-chalkboard-teacher"></i></div>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et vero
+                exercitationem quos eligendi similique magni?Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et vero
+                exercitationem quos eligendi similique magni?</p>
+            </div>
+            <div class="image-group">
+              <img class="animate-top" src="/img/blackboard.jpg" alt="">
+              <img class="animate-bottom" src="/img/online.jpg" alt="">
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="teme">
         <h1>Nastavne Teme</h1>
         <div class="temeContainer">
 
-          <div class="OSContainer">
+          <div class="OSContainer animate-left">
             <h2>Osnovna Škola</h2>
             <div class="accordion" id="nastavnoGradivoOS">
               <div class="accordion-item" v-for='(razred,index) in razredi' :key='index'>
@@ -134,7 +145,7 @@
             </div>
           </div>
 
-          <div class="SSContainer">
+          <div class="SSContainer animate-right">
             <h2>Srednja Škola</h2>
             <div class="accordion" id="nastavnoGradivoSS">
               <div class="accordion-item" v-for='(razred,index) in razredi' :key='index'>
@@ -159,7 +170,8 @@
         <h1 class="leadHeadline">Cenovnik</h1>
         <div class="category">
           <div class="categoryContainer">
-            <div class="card">
+
+            <div class="card animate-left">
               <div class="face face1">
                 <div class="content">
                   <img src="./img/osnovna.png" alt="Osnovna" />
@@ -180,7 +192,8 @@
                 </div>
               </div>
             </div>
-            <div class="card">
+
+            <div class="card animate-right">
               <div class="face face1">
                 <div class="content">
                   <img src="./img/srednja.png" alt="srednja.png" />
@@ -201,7 +214,7 @@
                 </div>
               </div>
             </div>
-            <div class="card">
+            <div class="card animate-left">
               <div class="face face1">
                 <div class="content">
                   <img src="./img/zavrsni.png" alt="zavrsni" />
@@ -222,7 +235,7 @@
                 </div>
               </div>
             </div>
-            <div class="card">
+            <div class="card animate-right">
               <div class="face face1">
                 <div class="content">
                   <img src="./img/faks.png" alt="Fakultet" />
@@ -377,7 +390,7 @@
           
           <div class="contact">
             <h3 style="margin-bottom: 20px;">Kontakt informacije</h3>
-            <p><b> Email:</b> Casovimatematike@jakodugacko.com</p>
+            <p><b> Email:</b> ivana.casovi.matematike@gmail.com</p>
             <p><b> Telefon: </b>064/5555-333</p>
           </div>
           <div class="social">
