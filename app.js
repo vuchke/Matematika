@@ -29,7 +29,7 @@ const tilt = () => {
   VanillaTilt.init(document.querySelectorAll(".box"), {
     reverse: false,
     reset: true,
-    max: 15,
+    max: 5,
     speed: 1000,
     gyroscope: true,
     gyroscopeMinAngleX: -45,
