@@ -7,13 +7,17 @@
 }
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
 }
 body {
   font-family: "Montserrat", sans-serif;
   height: 100%;
   background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/concrete-wall-background.jpg)
     center center fixed;
-  background-size: cover;
+  background-size: cover;  
+}
+section{
+  overflow: hidden;
 }
 
 nav {
@@ -306,6 +310,72 @@ nav {
   line-height: 1.2em;
   text-align: center;
 }
+/* about me  */
+.container{
+  width: 100%;
+  max-width: 122.5rem;
+  margin: 0 auto;
+  padding: 0 2.4rem;
+}
+.about-info{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.about-info > div {
+  flex: 1;
+}
+.about-textContainer {
+  padding-right: 7rem;
+}
+.about-textContainer h1 {
+  font-size: 3rem;
+  margin: 2rem 0;
+  color: #36215c;
+  position: relative;  
+}
+.about-textContainer h1::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.3em;
+  width: 100%;
+  height: 1px;
+  background-color: #36215c;
+  transform: scaleX(0.2);
+  transition: 0.4s ease-in-out;
+}
+.about-info:hover h1::after{
+  transform: scaleX(0.6);
+}
+.about-info i {
+  color: #36215c;
+  margin: 1rem 0;
+  font-size: 2rem;
+  transform: scale(0);
+  transition: transform 0.4s ease-in-out;
+  transition-delay: 0.5s;
+}
+.about-info:hover i {
+  transform: scale(1);
+}
+.about-textContainer p {
+  line-height: 2;
+  font-weight: 500;
+  
+}
+
+
+.image-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.image-group img {
+  width: 100%;
+  max-width: 100%;
+}
 
 /* Teme */
 #teme h1 {
@@ -331,9 +401,9 @@ nav {
 }
 .temeContainer {
   display: flex;
-  /* min-height: 100vh; */
+ 
   justify-content: center;
-  /* align-items: center; */
+ 
   flex-wrap: wrap;
 }
 .temeContainer h2 {
@@ -837,7 +907,7 @@ footer .container {
     == MOBILE ==
     ============ */
 @media screen and (max-width: 1140px) {
-  body {
+  html {
     font-size: 13px;
   }
   .heroContent h1 {
@@ -855,6 +925,16 @@ footer .container {
   .contentBox p {
     font-size: 0.7rem;
     padding: 0.5em;
+  }
+  .about-info{
+    flex-direction: column;
+  }
+  .about-textContainer {
+    padding-right: 0;
+  }
+  .about-textContainer p{
+    max-width: 60ch;
+    margin: 3rem 0;
   }
 }
 
