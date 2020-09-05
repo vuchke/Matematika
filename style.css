@@ -14,9 +14,9 @@ body {
   height: 100%;
   background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/concrete-wall-background.jpg)
     center center fixed;
-  background-size: cover;  
+  background-size: cover;
 }
-section{
+section {
   overflow: hidden;
 }
 
@@ -311,13 +311,13 @@ nav {
   text-align: center;
 }
 /* about me  */
-.container{
+.container {
   width: 100%;
   max-width: 122.5rem;
   margin: 0 auto;
   padding: 0 2.4rem;
 }
-.about-info{
+.about-info {
   text-align: center;
   display: flex;
   justify-content: center;
@@ -333,9 +333,9 @@ nav {
   font-size: 3rem;
   margin: 2rem 0;
   color: #36215c;
-  position: relative;  
+  position: relative;
 }
-.about-textContainer h1::after{
+.about-textContainer h1::after {
   content: "";
   position: absolute;
   left: 0;
@@ -346,7 +346,7 @@ nav {
   transform: scaleX(0.2);
   transition: 0.4s ease-in-out;
 }
-.about-info:hover h1::after{
+.about-info:hover h1::after {
   transform: scaleX(0.6);
 }
 .about-info i {
@@ -363,9 +363,7 @@ nav {
 .about-textContainer p {
   line-height: 2;
   font-weight: 500;
-  
 }
-
 
 .image-group {
   display: grid;
@@ -401,9 +399,9 @@ nav {
 }
 .temeContainer {
   display: flex;
- 
+
   justify-content: center;
- 
+
   flex-wrap: wrap;
 }
 .temeContainer h2 {
@@ -926,13 +924,13 @@ footer .container {
     font-size: 0.7rem;
     padding: 0.5em;
   }
-  .about-info{
+  .about-info {
     flex-direction: column;
   }
   .about-textContainer {
     padding-right: 0;
   }
-  .about-textContainer p{
+  .about-textContainer p {
     max-width: 60ch;
     margin: 3rem 0;
   }
