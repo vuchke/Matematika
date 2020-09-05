@@ -169,7 +169,7 @@ nav {
   /* margin: 1em 0; */
   color: #36215c;
   position: relative;
-  text-shadow: 2px 2px 2px #ffffff;
+  text-shadow: 1px 1px 2px #ffffffa9;
   text-align: end;
   margin-top: 1em;
 }
@@ -187,7 +187,7 @@ nav {
 .heroContent p {
   font-size: 1rem;
   letter-spacing: 0.1em;
-  line-height: 2.5em;
+  line-height: 2em;
   max-width: 45ch;
   font-weight: 700;
   text-align: end;
@@ -568,8 +568,7 @@ nav {
   /* min-height: 100%; */
   position: relative;
 }
-.formHeading{
- 
+.formHeading {
   font-family: "Permanent Marker", cursive;
   font-size: 2.2rem;
   color: rgba(238, 238, 238, 0.911);
@@ -643,11 +642,10 @@ nav {
       transparent
     );
   border: #2c2c2c solid 2px;
-  
 }
 
 .form {
-  padding: 70px 20px 20px;  
+  padding: 70px 20px 20px;
 }
 
 p {
@@ -731,11 +729,11 @@ textarea {
   display: flex;
   align-items: center;
 }
-.errorsInForm span{
-  color: rgb(255, 83, 83); 
+.errorsInForm span {
+  color: rgb(255, 83, 83);
 }
 .errorList {
-  margin-left: 20px
+  margin-left: 20px;
 }
 .formSent {
   display: flex;
@@ -746,14 +744,13 @@ textarea {
   max-width: 20%;
 }
 .formSent h2 {
-  color:#25d366;
+  color: #25d366;
   margin: 1em 0;
 }
 .formSent p {
   color: rgba(238, 238, 238, 0.911);
   line-height: 0.5rem;
 }
-
 
 footer {
   background-color: white;
@@ -770,7 +767,6 @@ footer .container {
   padding: 35px 1.5em 0 1.5em;
 }
 .contact {
-  
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -956,13 +952,12 @@ footer .container {
     width: 100%;
   }
 
-  .containerBox .box .contentBox{
+  .containerBox .box .contentBox {
     padding: 10px 5px;
     right: 30px;
     left: 30px;
   }
 }
-
 
 /* navlinks animation */
 @keyframes navLinkFade {
