@@ -284,8 +284,10 @@ nav {
 .containerBox .box .contentBox {
   position: absolute;
   top: 10%;
-  left: 50px;
-  right: 50px;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+
   background: rgba(255, 255, 255, 0.849);
   transform: translateZ(20px) scaleY(0);
   padding: 40px 25px;
@@ -304,10 +306,10 @@ nav {
   text-align: center;
 }
 .contentBox p {
-  font-size: 0.7rem;
-  padding: 1em;
+  font-size: 0.9rem;
+  padding: 0.5em;
   font-weight: 500;
-  line-height: 1.2em;
+  line-height: 1.1em;
   text-align: center;
 }
 /* about me  */
@@ -480,7 +482,7 @@ nav {
   padding: 1rem;
   line-height: 1.5rem;
   border-top: 2px solid;
-  border-image: linear-gradient(to right, transparent, #36215c79, transparent) 1;
+  border-image: linear-gradient(to right, transparent, #36215c79, transparent);
 }
 
 .accordion-item-body-content ol {
@@ -921,8 +923,9 @@ footer .container {
     padding: 40px 10px;
   }
   .contentBox p {
-    font-size: 0.7rem;
-    padding: 0.5em;
+    font-size: 1rem;
+    padding: 0.8em;
+    line-height: 1.5;
   }
   .about-info {
     flex-direction: column;
@@ -1034,6 +1037,14 @@ footer .container {
     padding: 10px 5px;
     right: 30px;
     left: 30px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .contentBox p {
+    font-size: 1rem;
+    padding: 0.3em;
+    line-height: 1;
   }
 }
 

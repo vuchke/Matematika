@@ -769,8 +769,8 @@
           
 
           },
-          sendEmail(e){
-           
+
+          sendEmail(e){           
             emailjs.sendForm('gmail', 'casovi', e.target, 'user_H0Q7wINANpg8FaCRhxdJp')
                .then((result) => {
                 this.formSent = true
@@ -779,6 +779,7 @@
                  console.log('FAILED...', error);
             });
           },
+          
         },
       })
     </script>
