@@ -1046,6 +1046,12 @@ footer .container {
     padding: 0.3em;
     line-height: 1;
   }
+  form label {
+    font-size: 2rem;
+  }
+  form input {
+    margin-bottom: 1rem;
+  }
 }
 
 /* navlinks animation */
